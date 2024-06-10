@@ -1,0 +1,29 @@
+.customButton,
+.customButtonStatic {
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    display: block;
+    color: var(--root-color-white);
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+}
+
+.customButton .buttonContent:hover {
+    transform: scale(1.2);
+}
+
+.buttonContent {
+    font-weight: 700;
+    transition: transform var(--animation-timing);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
