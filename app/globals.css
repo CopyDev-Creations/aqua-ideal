@@ -43,9 +43,10 @@
 
 body {
     font-family: var(--ff);
-    background: radial-gradient(var(--primary-accent-color), var(--secondary-accent-color));
+    /* background: radial-gradient(var(--primary-accent-color), var(--secondary-accent-color)); */
+    background: linear-gradient(90deg, #66412f, #755748, #65412f);
     color: var(--primary-color);
-    transition: var(--transition);
+    /* transition: var(--transition); */
     text-align: center;
 }
 

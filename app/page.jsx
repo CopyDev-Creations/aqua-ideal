@@ -4,7 +4,6 @@ import styles from "@/styles/home.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useEffect, useRef } from "react";
-import easeInOutSineFromTo from "@/utils/easeInOutSineFromTo";
 
 export default function Home() {
 
@@ -18,44 +17,29 @@ export default function Home() {
         scrollTrigger: {
           trigger: '#trigger',
           pin: false, // pin the trigger element while active
-          start: 'top top', // when the top of the trigger hits the top of the viewport
+          start: 'top top', // when the ___ of the trigger hits the ___ of the viewport
           end: '100% bottom',
           scrub: 0, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
           markers: false,
-          // snap: {
-          //   snapTo: 'labels', // snap to the closest label in the timeline
-          //   duration: { min: 0.2, max: 2 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-          //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-          // },
+          snap: {
+            snapTo: [0, 0.15, 0.459, 0.747, 1],//'labels', // snap to the closest label in the timeline
+            duration: { min: 0.2, max: 2 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+            delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+            directional: false
+          },
         }
       });
 
       let tl2 = gsap.timeline({
         defaults: {
-          ease: "slow(0.1,1,false)"
+          ease: "sine.inOut"
         },
         scrollTrigger: {
-          trigger: '#trigger',
+          trigger: '#trigger1',
           pin: false, // pin the trigger element while active
-          start: 'top top', // when the top of the trigger hits the top of the viewport
-          end: '100% bottom',
+          start: 'top top', // when the ___ of the trigger hits the ___ of the viewport
+          end: '200% top',
           scrub: 0, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-        }
-      });
-
-      let tl3 = gsap.timeline({
-        defaults: {
-          ease: "slow(0.1,1,false)"
-        },
-        scrollTrigger: {
-          trigger: '#trigger',
-          endTrigger: '#transition',
-          pin: false, // pin the trigger element while active
-          start: '10% top', // when the top of the trigger hits the top of the viewport
-          end: 'top top',
-          scrub: 0, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-          onUpdate: (self) => console.log(self.progress),
-          markers: true,
         }
       });
 
@@ -87,14 +71,92 @@ export default function Home() {
         .to('#video4', { translate: "0 100%" }, "part4")
         .to('#videoContainer4', { display: "none" }, "part4");
 
-      tl2
-        // .from(`.${styles.heroSection}`, { translate: "0 -0%" }, 0)
-        .to(`.${styles.heroSection}`, { translate: "0 -100%" }, 0.025)
+      tl2.to(`.${styles.heroSection}`, { translate: "0 -100%" }, 0.025)
 
-      // tl3
-      //   .to('#videoContainer4', { translate: "0 -100%" }, "part4")
-      //   .to('#video4', { translate: "0 100%" }, "part4")
-      //   .to('#videoContainer4', { display: "none" }, "part4");
+
+      const defaultBackground = document.querySelector("body").computedStyleMap().get('background-image').toString();
+
+      const canvas = document.getElementById("hero-lightpass");
+      const context = canvas.getContext("2d");
+
+      canvas.width = innerWidth;
+      canvas.height = innerWidth * (1000 / 1440);
+
+      const observer = new ResizeObserver((entries) => {
+        // canvas.width = entries[0].contentRect.width;
+        // canvas.height = entries[0].contentRect.height;
+        canvas.width = innerWidth;
+        canvas.height = innerWidth * (1000 / 1440);
+        render();
+      });
+      observer.observe(canvas);
+
+      const transitionOFF = () => {
+        canvas.style.display = "none";
+        document.querySelector("body").style.background = 'black';
+      }
+
+      const transitionON = () => {
+        canvas.style.display = "";
+        document.querySelector("body").style.background = defaultBackground;
+      }
+
+      const frameCount = 100;
+      const currentFrame = (index) => `/transition/${(index).toString().padStart(4, "0")}.png`;
+      const images = [];
+      const animation = {
+        frame: 0
+      };
+
+      for (let i = 0; i < frameCount; i++) {
+        const img = document.createElement("img");
+        img.src = currentFrame(i);
+        img.alt = `animation-frame-${i}`;
+        images.push(img);
+      }
+
+      let transition = gsap.to(animation, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#canvas-container",
+          endTrigger: "#end-transition",
+          start: "50% 50%", // when the ___ of the trigger hits the ___ of the viewport
+          end: "top bottom",
+          pin: true,
+          scrub: 0,
+          markers: false,
+          onLeave: transitionOFF,
+          onEnterBack: transitionON,
+        },
+        // onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+        onUpdate: () => {
+          render();
+          if (innerHeight / innerWidth > 1000 / 1440) {
+            let height = innerWidth * (1000 / 1440);
+            let progress = (animation.frame + 1) / 100;
+            canvas.style.scale = 1 + progress * (1 / (height / innerHeight)) * 1.1;
+          } else {
+            canvas.style.scale = 1;
+          }
+        }, // use animation onUpdate instead of scrollTrigger's onUpdate
+      });
+
+      if (transition.progress() == 1) {
+        transitionOFF();
+      } else {
+        transitionON();
+      };
+
+      images[0].onload = render;
+
+      function render() {
+        // canvas.width = innerWidth;
+        // canvas.height = innerWidth * (1000 / 1440);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[animation.frame], 0, 0, canvas.width, canvas.height);
+      }
     })
   }, [])
 
@@ -109,7 +171,7 @@ export default function Home() {
           </div>
         </section>
         <div className={styles.trigger} id="trigger" style={{ height: '500lvh' }}>
-          <section style={{ height: '100lvh' }}></section>
+          <section id="trigger1" style={{ height: '100lvh' }}></section>
           <section style={{ height: '100lvh' }}>
             <h2></h2>
             <p style={{ alignSelf: 'flex-end' }}>
@@ -137,7 +199,10 @@ export default function Home() {
               Aqua Ideal takes restroom design to the next level, offering sleek and minimalistic furniture
               for your bathroom. Discover our inspirational collection to experience a spa-like atmosphere.
             </p>
-            <img src="/AIWC80.png" alt="test" />
+            {/* <img src="/AIWC80.png" alt="test" /> */}
+            <div className={styles.canvasContainer} id="canvas-container">
+              <canvas id="hero-lightpass" />
+            </div>
           </section>
         </div>
         <section className="videoContainer" id="videoContainer1" style={{ zIndex: 0 }}>
@@ -174,10 +239,28 @@ export default function Home() {
             </video>
           </div>
         </section>
-        <h2 id="test" style={{ zIndex: 10 }}>Lorem, ipsum dolor.</h2>
-        <h3>Lorem, ipsum dolor.</h3>
-        <p>Lorem, ipsum dolor.</p>
-        <a href="#">Lorem, ipsum dolor.</a>
+        <div style={{ marginTop: '200lvh' }} id="end-transition"></div>
+        <section style={{ backgroundColor: 'var(--secondary-color)' }}>
+          <div style={{ height: '300px', backgroundImage: 'linear-gradient(black, var(--secondary-color))' }}>
+            <h2 className={styles.carousel}>
+              <span>Beyond luxury Velvety smooth Ideal for you Timeless elegance Modern sophistication Unmatched quality Pure relaxation Luxurious touch Superb craftsmanship Distinctive design </span>
+              <span>Beyond luxury Velvety smooth Ideal for you Timeless elegance Modern sophistication Unmatched quality Pure relaxation Luxurious touch Superb craftsmanship Distinctive design </span>
+            </h2>
+          </div>
+          {/* <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%' }}>
+            <ellipse cx="100" cy="0" rx="100" ry="20" />
+          </svg> */}
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h2>Lorem, ipsum dolor.</h2>
+          <h3>Lorem, ipsum dolor.</h3>
+          <p>Lorem, ipsum dolor.</p>
+          <a href="#">Lorem, ipsum dolor.</a>
+        </section>
         {/* <Section1 />
         <Section2 />
         <Section3 />
