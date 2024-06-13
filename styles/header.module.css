@@ -89,12 +89,13 @@
     transition: translate var(--transition);
     translate: 100%;
     padding: 20px;
-    z-index: 1;
+    z-index: 999;
 }
 
-.hamburgerMenu:has(input:checked)+.sidebar {
+/* Using JS instead  */
+/* .hamburgerMenu:has(input:checked)+.sidebar {
     translate: 0%;
-}
+} */
 
 @media (min-width: 851px) {
     .mobileVisible {

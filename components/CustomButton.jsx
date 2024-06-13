@@ -14,10 +14,10 @@ const customButton = ({ name, href, animated, className, style, onClick, childre
     const handleButton = () => {
         if (onClick !== undefined) onClick();
         if (href[0] == '#' || href[0] == '.') {
-            let elem = document.querySelector(href);
+            let elem = document.querySelector(href == "#" ? "body" : href);
             if (elem.parentElement.className == 'pin-spacer') elem = elem.parentElement;
             if (elem.offsetTop == lenis?.targetScroll) return;
-            lenis?.scrollTo(href, {
+            lenis?.scrollTo(elem, {
                 duration: Math.abs(elem.offsetTop - lenis?.targetScroll) / innerHeight * 0.25,//2,
                 lock: true,
                 easing: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
@@ -28,7 +28,7 @@ const customButton = ({ name, href, animated, className, style, onClick, childre
     }
 
     return (
-        <button className={(className !== undefined ? ` ${className}` : '') + (animated ? ` ${styles.customButton}` : ` ${styles.customButtonStatic}`)} onClick={handleButton} style={{ fontSize: `${name ? '' : '0'}`, ...style }} ref={buttonRef}><div className={styles.buttonContent}>{name || children}</div></button>
+        <button className={(className !== undefined ? ` ${className}` : '') + (animated ? ` ${styles.customButton}` : ` ${styles.customButtonStatic}`)} onClick={handleButton} style={{ ...style }} ref={buttonRef}><div className={styles.buttonContent}>{children}</div></button>
     )
 }
 export default customButton

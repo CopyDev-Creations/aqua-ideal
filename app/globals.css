@@ -20,6 +20,9 @@
     --transition: 300ms ease-in-out;
     --shadow: #rgba(0, 0, 0, 0.3) 0px 0px 10px 0px;
     --shadow-dark: rgba(0, 0, 0, 0.3) 0px 5px 10px 5px;
+    --scrollbar-bg: #191819;
+    --scrollbar-thumb: hsl(300, 2%, 30%);
+    --scrollbar-thumb-hover: var(--primary-color);
 }
 
 /* SELECTION */
@@ -35,6 +38,31 @@
 }
 
 /* //////// */
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* //////// */
+
 * {
     margin: 0;
     padding: 0;
@@ -114,5 +142,27 @@ a {
             height: 100%;
             object-fit: cover;
         }
+    }
+}
+
+.logo {
+    position: fixed;
+    text-wrap: nowrap;
+    text-align: center;
+    left: 20px;
+    top: 0%;
+    font: var(--h3);
+    color: var(--primary-color);
+}
+
+@media (min-width: 851px) {
+    .logo {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    .logo {
+        margin-top: 20px;
     }
 }
