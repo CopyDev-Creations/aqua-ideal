@@ -19,8 +19,14 @@ const Footer = () => {
                     pin: false, // pin the trigger element while active
                     start: 'top bottom', // when the ___ of the trigger hits the ___ of the viewport
                     end: 'bottom bottom',
-                    scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                    scrub: 0.1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
                     markers: false,
+                    onLeaveBack: () => {
+                        document.querySelector("header").style.mixBlendMode = 'difference';
+                    },
+                    onEnter: () => {
+                        document.querySelector("header").style.mixBlendMode = 'luminosity';
+                    }
                 }
             });
 
@@ -35,21 +41,31 @@ const Footer = () => {
                     end: 'bottom bottom',
                     scrub: 0.1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
                     markers: false,
+                    onEnter: () => {
+                        if (document.querySelector(`.${styles.background}`)) {
+                            document.querySelector(`.${styles.background}`).style.display = 'unset';
+                        }
+                    },
+                    onLeaveBack: () => {
+                        if (document.querySelector(`.${styles.background}`)) {
+                            document.querySelector(`.${styles.background}`).style.display = 'none';
+                        }
+                    }
                 }
             });
 
             tl1
                 .addLabel('part1')
-                .to(`.${styles.background}`, { display: 'none' }, "part1")
-                .to(`.${styles.background}`, { display: 'unset' }, "part1")
+                .to('.logo', { top: "calc(100% - 60px)", translate: '0 -100%', marginTop: 0 }, "part1")
                 .addLabel('part2')
-                .to('.logo', { top: "calc(100% - 60px)", translate: '0 -100%', marginTop: 0 }, "part2")
-                .to('header', { mixBlendMode: 'luminosity' }, "part2")
-                .addLabel('part3')
-                .to('.logo', { width: '100%', lineHeight: '15lvw', fontSize: '15lvw', left: '0px' }, "part3")
+                .to('.logo', { width: '100%', lineHeight: '15lvw', fontSize: '15lvw', left: '0px' }, "part2")
 
             tl2.to(`.${styles.background}`, { translate: '0 0' })
         })
+
+        return () => {
+            ctx.revert();
+        }
     }, [])
 
     return (

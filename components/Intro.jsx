@@ -72,8 +72,6 @@ const Intro = () => {
             tl2.to(`.${styles.heroSection}`, { translate: "0 -100%" }, 0.025)
 
 
-            const defaultBackground = document.querySelector("body").computedStyleMap().get('background-image').toString();
-
             const canvas = document.getElementById("hero-lightpass");
             const context = canvas.getContext("2d");
 
@@ -89,16 +87,18 @@ const Intro = () => {
             });
             observer.observe(canvas);
 
-            const transitionOFF = () => {
+            const beforeTransition = () => {
+                canvas.style.display = "";
+                document.querySelector("body").style.background = 'var(--background)';
+                document.querySelector("header").style.mixBlendMode = 'unset';
+                document.querySelector(".hamburgerMenu").style.mixBlendMode = 'unset';
+            }
+
+            const afterTransition = () => {
                 canvas.style.display = "none";
                 document.querySelector("body").style.background = 'black';
                 document.querySelector("header").style.mixBlendMode = 'difference';
-            }
-
-            const transitionON = () => {
-                canvas.style.display = "";
-                document.querySelector("body").style.background = defaultBackground;
-                document.querySelector("header").style.mixBlendMode = '';
+                document.querySelector(".hamburgerMenu").style.mixBlendMode = 'difference';
             }
 
             const frameCount = 100;
@@ -125,10 +125,10 @@ const Intro = () => {
                     start: "50% 50%", // when the ___ of the trigger hits the ___ of the viewport
                     end: "top bottom",
                     pin: true,
-                    scrub: 0,
+                    scrub: 0.1,
                     markers: false,
-                    onLeave: transitionOFF,
-                    onEnterBack: transitionON,
+                    onEnterBack: beforeTransition,
+                    onLeave: afterTransition,
                 },
                 // onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
                 onUpdate: () => {
@@ -143,12 +143,6 @@ const Intro = () => {
                 }, // use animation onUpdate instead of scrollTrigger's onUpdate
             });
 
-            if (transition.progress() == 1) {
-                transitionOFF();
-            } else {
-                transitionON();
-            };
-
             images[0].onload = render;
 
             function render() {
@@ -158,6 +152,11 @@ const Intro = () => {
                 context.drawImage(images[animation.frame], 0, 0, canvas.width, canvas.height);
             }
         })
+
+        return () => {
+            document.querySelector("body").style.background = 'var(--background)';
+            ctx.revert();
+        }
     }, [])
 
     return (

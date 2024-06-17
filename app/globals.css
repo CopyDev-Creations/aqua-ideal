@@ -23,6 +23,7 @@
     --scrollbar-bg: #191819;
     --scrollbar-thumb: hsl(300, 2%, 30%);
     --scrollbar-thumb-hover: var(--primary-color);
+    --background: linear-gradient(90deg, #66412f, #755748, #65412f);
 }
 
 /* SELECTION */
@@ -72,7 +73,7 @@
 body {
     font-family: var(--ff);
     /* background: radial-gradient(var(--primary-accent-color), var(--secondary-accent-color)); */
-    background: linear-gradient(90deg, #66412f, #755748, #65412f);
+    background: var(--background);
     color: var(--primary-color);
     /* transition: var(--transition); */
     text-align: center;
@@ -98,6 +99,11 @@ a {
     font: var(--links);
     text-decoration: none;
     color: var(--primary-accent-color);
+}
+
+button {
+    font: var(--p);
+    color: var(--primary-color);
 }
 
 .row {

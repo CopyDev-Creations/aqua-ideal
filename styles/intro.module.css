@@ -70,6 +70,7 @@
 
 .transition p {
     max-width: 410px;
+    text-align: left;
 }
 
 .transition canvas {

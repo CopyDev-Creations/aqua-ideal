@@ -1,0 +1,91 @@
+.section {
+    background-color: var(--secondary-color);
+    padding: 80px 20px 40px 20px;
+    text-align: left;
+}
+
+.section span {
+    font: var(--p);
+}
+
+.section h2 span {
+    font: var(--h2);
+}
+
+.section h2 sup {
+    font-size: 0.5em;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.colors {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.outerCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.outerCircle:hover {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.innerCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.amazonBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--primary-accent-color);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.amazonBtn svg {
+    height: 1em;
+    width: 1em;
+}
+
+.mainContainer {
+    display: grid;
+    grid-auto-rows: 20lvh;
+}
+
+.mainContainer>* {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.mainContainer>*:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1/5;
+    padding: 0px;
+}
+
+@media (min-width: 1200px) {
+    .mainContainer {
+        grid-template-columns: 0.6fr 0.4fr;
+    }
+}
+
+@media (max-width: 1199px) {
+    .mainContainer {
+        grid-template-columns: 1fr;
+    }
+}

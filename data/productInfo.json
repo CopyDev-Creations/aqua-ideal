@@ -1,0 +1,132 @@
+{
+    "pl": {
+        "CT115": {
+            "short": "CT115",
+            "title": "CT115 Blat łazienkowy",
+            "price": "500.00",
+            "amazon": "https://www.amazon.pl/AICT115-Blat-lazienkowy-1150x450x18-graphite/dp/B0CPFCY4YV",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIWC80": {
+            "short": "AIWC80",
+            "title": "AIWC80 Szafka podumywalkowa",
+            "price": "1 430.00",
+            "colors": [
+                "graphite",
+                "oak",
+                "walnut"
+            ],
+            "amazon": "https://www.amazon.pl/AIWC80-Szafka-podumywalkowa-800x320x450-walnut/dp/B0CPFGFB83",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIP120": {
+            "short": "AIP120",
+            "title": "AIP120 Szafka łazienkowa",
+            "price": "1 250.00",
+            "colors": [
+                "graphite",
+                "oak",
+                "walnut"
+            ],
+            "amazon": "https://www.amazon.pl/AIP120-Szafka-lazienkowa-1200x301x270-Oak/dp/B0CPFDBZKB?th=1",
+            "images": [
+                "/AIP120_oak.png"
+            ],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIM35": {
+            "short": "AIM35",
+            "title": "AIM35 Dostawka do szafki podumywalkowej",
+            "price": "400.00",
+            "amazon": "https://www.amazon.pl/AIM35-Dostawka-podumywalkowej-300x350x430-graphite/dp/B0CPFDDY5S",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        }
+    },
+    "en": {
+        "CT115": {
+            "short": "CT115",
+            "title": "CT115 Bathroom countertop",
+            "price": "500.00",
+            "amazon": "https://www.amazon.pl/AICT115-Blat-lazienkowy-1150x450x18-graphite/dp/B0CPFCY4YV",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIWC80": {
+            "short": "AIWC80",
+            "title": "AIWC80 Washbasin cabinet",
+            "price": "1 430.00",
+            "colors": [
+                "graphite",
+                "oak",
+                "walnut"
+            ],
+            "amazon": "https://www.amazon.pl/AIWC80-Szafka-podumywalkowa-800x320x450-walnut/dp/B0CPFGFB83",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIP120": {
+            "short": "AIP120",
+            "title": "AIP120 Bathroom cabinet",
+            "price": "1 250.00",
+            "colors": [
+                "graphite",
+                "oak",
+                "walnut"
+            ],
+            "amazon": "https://www.amazon.pl/AIP120-Szafka-lazienkowa-1200x301x270-Oak/dp/B0CPFDBZKB?th=1",
+            "images": [
+                "/AIP120_oak.png",
+                "/AIP120_graphite.png",
+                "/AIM35.png",
+                "/AIP120_walnut.png",
+                "/AIWC80_graphite.png",
+                "/AIWC80_oak.png",
+                "/"
+            ],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        },
+        "AIM35": {
+            "short": "AIM35",
+            "title": "AIM35 Washbasin cabinet extension",
+            "price": "400.00",
+            "amazon": "https://www.amazon.pl/AIM35-Dostawka-podumywalkowej-300x350x430-graphite/dp/B0CPFDDY5S",
+            "images": [],
+            "description": [
+                "test1",
+                "test2",
+                "test3"
+            ]
+        }
+    }
+}

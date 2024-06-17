@@ -16,30 +16,37 @@ const Header = () => {
         }
     }
 
+    const handleClick = (event) => {
+        if (event.target.className != styles.sidebar && event.pointerId == 1 && event.target.className != `${styles.hamburgerMenu} prevent-select hamburgerMenu`) {
+            checkboxRef.current.checked = false;
+            sidebarRef.current.style.translate = '';
+        }
+    }
+
     useEffect(() => {
         checkboxRef.current.addEventListener('change', handleCheckbox);
+        document.addEventListener('click', handleClick);
 
         return () => {
             checkboxRef.current.removeEventListener('change', handleCheckbox);
+            document.removeEventListener('click', handleClick);
         }
     }, []);
-
 
     return (
         <>
             <header className={styles.header}>
                 <nav>
-                    <CustomButton href={"#"} animated={false} className="logo prevent-select">Aqua Ideal</CustomButton>
+                    <CustomButton href={"/"} animated={false} className="logo prevent-select">Aqua Ideal</CustomButton>
                 </nav>
-                <label className={`${styles.hamburgerMenu} prevent-select`}>
-                    <input type="checkbox" id="menu" ref={checkboxRef} />
-                </label>
             </header>
+            <label className={`${styles.hamburgerMenu} prevent-select hamburgerMenu`}>
+                <input type="checkbox" id="menu" className={styles.menu} ref={checkboxRef} />
+            </label>
             <aside className={styles.sidebar} ref={sidebarRef}>
-                <a href="#">Element listy</a>
-                <a href="#">Element listy</a>
-                <a href="#">Element listy</a>
-                <a href="#">Element listy</a>
+                <CustomButton href="/" className={styles.link}>Home</CustomButton>
+                <CustomButton href="/products" className={styles.link}>Products</CustomButton>
+                <CustomButton href="/products/#test" className={styles.link}>How it works</CustomButton>
             </aside>
         </>
     )

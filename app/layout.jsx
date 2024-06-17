@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header, SmoothScrolling } from "@/components";
+import "swiper/css";
+import { Header, LoadingScreen, SmoothScrolling } from "@/components";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +21,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <SmoothScrolling>
-          {/* <LoadingScreen> */}
-          <Header />
-          {children}
-          {/* <Footer /> */}
-          {/* </LoadingScreen> */}
+          <LoadingScreen>
+            <Header />
+            {children}
+            {/* <Footer /> */}
+          </LoadingScreen>
         </SmoothScrolling>
       </body>
     </html>

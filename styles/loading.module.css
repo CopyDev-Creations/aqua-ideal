@@ -1,0 +1,17 @@
+.loading {
+    z-index: 9999999;
+    position: fixed;
+    width: 100lvw;
+    height: 100lvh;
+    background-color: #000;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* transition: opacity var(--animation-timing); */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
