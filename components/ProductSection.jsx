@@ -7,6 +7,8 @@ const ProductSection = ({ productID, productData }) => {
     const [chosenColor, setChosenColor] = useState('oak');
     const [images, setImages] = useState([]);
     let { stopLoading } = useContext(LoadingContext);
+    // basePath
+    const cardStyle = { backgroundImage: `url("${process.env.basePath || ""}/images/card_background.png")` };
 
     const description = (() => {
         switch (productID) {
@@ -14,11 +16,11 @@ const ProductSection = ({ productID, productData }) => {
                 <>
                     <p style={{ maxWidth: '700px' }}>The countertop needs to be purchased as a separate part and manually put onto the cabinet and the extension. You will find the assembly instructions in the box.</p>
                     <div className={styles.CT115_cards}>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Effortless maintenance</h3>
                             <p>Its stain-resistant finish and easy-to-clean surfaces ensure it remains pristine with minimal effort.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Velvety smoothness</h3>
                             <p>Experience luxury anytime you glide your hand along the silky surface of Aqua Ideal furniture.</p>
                         </div>
@@ -33,27 +35,27 @@ const ProductSection = ({ productID, productData }) => {
                         <p>Its lacquered surface resists moisture, making it a perfect choice for the bathroom environment.</p>
                     </div>
                     <div className={styles.AIWC80_cards} >
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Convenient set-up</h3>
                             <p>Aqua Ideal furniture is already pre-built and ready to install straight from the box. Wave goodbye to overcomplicated manuals.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Sturdy build</h3>
                             <p>The drawer sits firmly thanks to the pull-out stops, which stabilize the drawer for maximal comfort.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Delicate Silence</h3>
                             <p>Thanks to the soft-close mechanism, the drawer makes no rattling or clunking sounds, creating a tranquil atmosphere in your bathroom.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Effortless maintenance</h3>
                             <p>The Egger lacquered countertop is easy to clean and keeps its pristine look with minimal effort.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Unmatched durability</h3>
                             <p>Thanks to its lacquered surface the sink basin cabinet resists anything from scratches or moisture to fingerprints and traditional stains.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Velvety smoothness</h3>
                             <p>Experience luxury anytime you glide your hand along the surface of the silky-smooth countertop.</p>
                         </div>
@@ -67,27 +69,27 @@ const ProductSection = ({ productID, productData }) => {
                         <p>Flexible installation allows you to mount it on either the left-hand side or the right-hand side, adapting to your bathroom layout seamlessly. Crafted with top components from Blum and Egger, the Aqua Ideal cabinet boasts robust durability and an elegant design.</p>
                     </div>
                     <div className={styles.AIP120_cards} >
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Convenient set-up</h3>
                             <p>Aqua Ideal furniture is already pre-built and ready to install straight from the box. Wave goodbye to overcomplicated manuals.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Delicate Silence</h3>
                             <p>Thanks to the soft-close mechanism, the cabinet makes no rattling or clunking sounds, creating a tranquil atmosphere in your bathroom.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Unmatched durability</h3>
                             <p>Thanks to its lacquered surface, the wall-mounted cabinet resists anything from scratches or moisture to fingerprints and traditional stains.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Effortless maintenance</h3>
                             <p>Its stain-resistant finish and easy-to-clean surfaces ensure it remains pristine with minimal effort.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Unparalleled Practicality</h3>
                             <p>Thanks to the cabinet's tall build, you make the most out of your bathroom space.</p>
                         </div>
-                        <div>
+                        <div style={cardStyle}>
                             <h3>Velvety smoothness</h3>
                             <p>Experience luxury anytime you glide your hand along the silky surface of the cabinet.</p>
                         </div>
