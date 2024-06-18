@@ -102,7 +102,7 @@ const Intro = () => {
             }
 
             const frameCount = 100;
-            const currentFrame = (index) => `/transition/${(index).toString().padStart(4, "0")}.png`;
+            const currentFrame = (index) => `${process.env.basePath || ""}/transition/${(index).toString().padStart(4, "0")}.png`;
             const images = [];
             const animation = {
                 frame: 0
