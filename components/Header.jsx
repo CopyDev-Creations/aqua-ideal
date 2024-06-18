@@ -17,7 +17,6 @@ const Header = () => {
     }
 
     const handleClick = (event) => {
-        console.log(event);
         if (event.target.className != styles.sidebar && event.target.id != "menu" && event.target.className != `${styles.hamburgerMenu} prevent-select hamburgerMenu`) {
             checkboxRef.current.checked = false;
             sidebarRef.current.style.translate = '';

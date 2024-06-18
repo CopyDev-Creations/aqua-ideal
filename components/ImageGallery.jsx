@@ -9,8 +9,8 @@ const ImageGallery = ({ images, onUpdateGoTo }) => {
     const [elements, setElements] = useState({ slides: [], thumbnails: [] });
 
     useEffect(() => {
-        const slides = images.map((image, index) => <img src={image} alt={`image_${index}`} />);
-        const thumbnails = images.map((image, index) => <Image src={image} alt={`thumbnail_${index}`} width={512} height={512} />);
+        const slides = images.map((image, index) => <img src={process.env.basePath || "" + image} alt={`image_${index}`} />);
+        const thumbnails = images.map((image, index) => <Image src={process.env.basePath || "" + image} alt={`thumbnail_${index}`} width={512} height={512} />);
         setElements({ slides, thumbnails })
     }, [images])
 

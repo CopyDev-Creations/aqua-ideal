@@ -23,7 +23,7 @@ const Section1 = () => {
                 </div>
                 <div>
                     <CustomButton href={"/products"} animated={false} className={styles.card}>
-                        <img src="/images/card_background.png" alt="background" className={styles.cardBg} />
+                        <img src={`${process.env.basePath || ""}/images/card_background.png`} alt="background" className={styles.cardBg} />
                         <div className={styles.cardContent}>
                             <h2>Discover<br />Perfection</h2>
                             <svg className={styles.cta} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

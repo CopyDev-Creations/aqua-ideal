@@ -204,7 +204,7 @@ const Intro = () => {
             <section className="videoContainer" id="videoContainer1" style={{ zIndex: 0 }}>
                 <div className="video">
                     <video autoPlay muted loop playsInline id="video1">
-                        <source src="/videos/aquaideal-visual1.mp4" type="video/mp4" />
+                        <source src={`${process.env.basePath || ""}/videos/aquaideal-visual1.mp4`} type="video/mp4" />
                     </video>
                 </div>
             </section>
@@ -217,21 +217,21 @@ const Intro = () => {
                         </div>
                     </div>
                     <video autoPlay muted loop playsInline>
-                        <source src="/videos/aquaideal-visual2.mp4" type="video/mp4" />
+                        <source src={`${process.env.basePath || ""}/videos/aquaideal-visual2.mp4`} type="video/mp4" />
                     </video>
                 </div>
             </section>
             <section className="videoContainer" id="videoContainer3" style={{ zIndex: 2, translate: "0 100%", display: "none" }}>
                 <div className="video" id="video3" style={{ translate: "0 -100%" }}>
                     <video autoPlay muted loop playsInline>
-                        <source src="/videos/aquaideal-visual3.mp4" type="video/mp4" />
+                        <source src={`${process.env.basePath || ""}/videos/aquaideal-visual3.mp4`} type="video/mp4" />
                     </video>
                 </div>
             </section>
             <section className="videoContainer" id="videoContainer4" style={{ zIndex: 3, translate: "0 100%", display: "none" }}>
                 <div className="video" id="video4" style={{ translate: "0 -100%" }}>
                     <video autoPlay muted loop playsInline>
-                        <source src="/videos/aquaideal-visual4.mp4" type="video/mp4" />
+                        <source src={`${process.env.basePath || ""}/videos/aquaideal-visual4.mp4`} type="video/mp4" />
                     </video>
                 </div>
             </section>

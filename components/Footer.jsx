@@ -72,9 +72,9 @@ const Footer = () => {
         <footer className={styles.footer}>
             <p className={styles.copyright}>Copyright &copy; {d.getFullYear()} Aqua Ideal Sp. z o. o.</p>
             <div className={styles.background}>
-                <img src="/images/footer.png" alt="test" className={styles.backgroundImage} />
+                <img src={`${process.env.basePath || ""}/images/footer.png`} alt="test" className={styles.backgroundImage} />
             </div>
-            <a href="https://copydevcreations.com" target="_blank" className={styles.copydevcreations}><img src="/icons/copydevcreations.svg" alt="CopyDev Creations" title="Designed by CopyDev Creations" /></a>
+            <a href="https://copydevcreations.com" target="_blank" className={styles.copydevcreations}><img src={`${process.env.basePath || ""}/icons/copydevcreations.svg`} alt="CopyDev Creations" title="Designed by CopyDev Creations" /></a>
         </footer>
     )
 }
