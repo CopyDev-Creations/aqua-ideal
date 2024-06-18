@@ -37,7 +37,7 @@ const Header = () => {
         document.addEventListener('touchend', handleTouch);
 
         return () => {
-            checkboxRef.current.removeEventListener('change', handleCheckbox);
+            checkboxRef.current?.removeEventListener('change', handleCheckbox);
             document.removeEventListener('click', handleClick);
             document.removeEventListener('touchend', handleTouch);
         }
