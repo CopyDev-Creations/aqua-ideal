@@ -5,12 +5,7 @@
             "title": "CT115 Blat łazienkowy",
             "price": "500.00",
             "amazon": "https://www.amazon.pl/AICT115-Blat-lazienkowy-1150x450x18-graphite/dp/B0CPFCY4YV",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
-            ]
+            "images": []
         },
         "AIWC80": {
             "short": "AIWC80",
@@ -22,12 +17,7 @@
                 "walnut"
             ],
             "amazon": "https://www.amazon.pl/AIWC80-Szafka-podumywalkowa-800x320x450-walnut/dp/B0CPFGFB83",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
-            ]
+            "images": []
         },
         "AIP120": {
             "short": "AIP120",
@@ -39,44 +29,60 @@
                 "walnut"
             ],
             "amazon": "https://www.amazon.pl/AIP120-Szafka-lazienkowa-1200x301x270-Oak/dp/B0CPFDBZKB?th=1",
-            "images": [
-                "/AIP120_oak.png"
-            ],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
-            ]
+            "images": []
         },
         "AIM35": {
             "short": "AIM35",
             "title": "AIM35 Dostawka do szafki podumywalkowej",
             "price": "400.00",
             "amazon": "https://www.amazon.pl/AIM35-Dostawka-podumywalkowej-300x350x430-graphite/dp/B0CPFDDY5S",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
-            ]
+            "images": []
         }
     },
     "en": {
         "CT115": {
             "short": "CT115",
-            "title": "CT115 Bathroom countertop",
+            "title": "CT115 Countertop",
             "price": "500.00",
             "amazon": "https://www.amazon.pl/AICT115-Blat-lazienkowy-1150x450x18-graphite/dp/B0CPFCY4YV",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
+            "images": [
+                {
+                    "image": "/images/CT115.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual1_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_oak.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_walnut.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual5_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual6_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual7_oak.png",
+                    "color": "any"
+                }
             ]
         },
         "AIWC80": {
             "short": "AIWC80",
-            "title": "AIWC80 Washbasin cabinet",
+            "title": "AIWC80 Sink Basin Cabinet",
             "price": "1 430.00",
             "colors": [
                 "graphite",
@@ -84,16 +90,68 @@
                 "walnut"
             ],
             "amazon": "https://www.amazon.pl/AIWC80-Szafka-podumywalkowa-800x320x450-walnut/dp/B0CPFGFB83",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
+            "images": [
+                {
+                    "image": "/images/AIWC80_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/AIWC80_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/AIWC80_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual1_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual2_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual2_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual3_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual3_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual3_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual4_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual4_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual5_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual6_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual7_oak.png",
+                    "color": "oak"
+                }
             ]
         },
         "AIP120": {
             "short": "AIP120",
-            "title": "AIP120 Bathroom cabinet",
+            "title": "AIP120 Wall-mounted Tall Cabinet",
             "price": "1 250.00",
             "colors": [
                 "graphite",
@@ -102,30 +160,102 @@
             ],
             "amazon": "https://www.amazon.pl/AIP120-Szafka-lazienkowa-1200x301x270-Oak/dp/B0CPFDBZKB?th=1",
             "images": [
-                "/AIP120_oak.png",
-                "/AIP120_graphite.png",
-                "/AIM35.png",
-                "/AIP120_walnut.png",
-                "/AIWC80_graphite.png",
-                "/AIWC80_oak.png",
-                "/"
-            ],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
+                {
+                    "image": "/images/AIP120_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/AIP120_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/AIP120_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual1_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual2_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual2_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual3_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual3_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual3_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual4_oak.png",
+                    "color": "oak"
+                },
+                {
+                    "image": "/images/visual4_walnut.png",
+                    "color": "walnut"
+                },
+                {
+                    "image": "/images/visual5_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual6_graphite.png",
+                    "color": "graphite"
+                },
+                {
+                    "image": "/images/visual7_oak.png",
+                    "color": "oak"
+                }
             ]
         },
         "AIM35": {
             "short": "AIM35",
-            "title": "AIM35 Washbasin cabinet extension",
+            "title": "AIM35 Cabinet Extension",
             "price": "400.00",
             "amazon": "https://www.amazon.pl/AIM35-Dostawka-podumywalkowej-300x350x430-graphite/dp/B0CPFDDY5S",
-            "images": [],
-            "description": [
-                "test1",
-                "test2",
-                "test3"
+            "images": [
+                {
+                    "image": "/images/AIM35.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual1_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_oak.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual3_walnut.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual5_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual6_graphite.png",
+                    "color": "any"
+                },
+                {
+                    "image": "/images/visual7_oak.png",
+                    "color": "any"
+                }
             ]
         }
     }

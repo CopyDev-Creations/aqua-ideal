@@ -13,10 +13,10 @@ const Section2 = () => {
                         your bathroom into a refined sanctuary.
                     </p>
                 </div>
-                <img src="/visual.png" alt="visual" />
+                <img src="/images/visual1_graphite.png" alt="visual" />
             </div>
             <div className={styles.row}>
-                <img src="/countertop.png" alt="countertop" />
+                <img src="/images/countertop.png" alt="countertop" />
                 <div className={styles.col}>
                     <h3 className={styles.title2}><span>The Wisdom of Simplicity</span><span>The Luxury of efficiency</span></h3>
                     <p className={styles.text}>

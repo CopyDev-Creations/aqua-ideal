@@ -2,6 +2,7 @@
 import styles from "@/styles/loading.module.css"
 import { useContext, useEffect, useRef, useState } from "react"
 import { LenisContext, LoadingContext } from "."
+import gsap from "gsap"
 
 const LoadingScreen = ({ children }) => {
     let { lenis } = useContext(LenisContext);
@@ -11,40 +12,36 @@ const LoadingScreen = ({ children }) => {
     useEffect(() => {
         if (loadingScreen.current) {
             if (loading) {
-                loadingScreen.current.style.display = "unset";
+                loadingScreen.current.style.display = "";
             } else {
                 if (!window.location.hash) {
                     lenis?.scrollTo(0);
                 }
-                setTimeout(() => {
-                    loadingScreen.current.style.display = "none";
-                }, parseInt(getComputedStyle(document.querySelector(':root')).getPropertyValue('--transition')));
+                loadingScreen.current.style.display = "none";
             }
         }
     }, [loading]);
 
     const startLoading = (_callback) => {
-        console.log("startLoading");
+        gsap.fromTo(loadingScreen.current, { clipPath: "polygon(150% 0%, 300% 0%, 250% 100%, 100% 100%)" }, { clipPath: "polygon(0% 0%, 150% 0%, 100% 100%, -50% 100%)", duration: 0.75 })
         setLoading(true);
         setTimeout(() => {
             _callback();
-        }, 300);
+        }, 750);
     }
 
     const stopLoading = () => {
-        console.log("stopLoading");
+        gsap.fromTo(loadingScreen.current, { clipPath: "polygon(0% 0%, 150% 0%, 100% 100%, -50% 100%)" }, { clipPath: "polygon(-150% 0%, 0% 0%, -50% 100%, -200% 100%)", duration: 0.75 })
         setTimeout(() => {
             setLoading(false);
-        }, 300);
+        }, 750);
     }
 
     return (
         <LoadingContext.Provider value={{ startLoading, stopLoading }}>
-            {/* {loading && */}
-            <div className={styles.loading} style={{ display: 'unset' }} ref={loadingScreen}>
-                <p>LOADING</p>
+            <div className={styles.loading} ref={loadingScreen}>
+                <p>Aqua Ideal</p>
             </div>
-            {/* }*/}
             {children}
         </LoadingContext.Provider>
     )

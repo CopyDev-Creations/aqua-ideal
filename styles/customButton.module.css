@@ -1,3 +1,7 @@
+.customButton {
+    --scale: 1.1;
+}
+
 .customButton,
 .customButtonStatic {
     text-decoration: none;
@@ -21,7 +25,7 @@ a.customButtonStatic {
 }
 
 .customButton .buttonContent:hover {
-    scale: 1.1;
+    scale: var(--scale);
 }
 
 .buttonContent {

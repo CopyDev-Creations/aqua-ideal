@@ -13,6 +13,12 @@ const customButton = ({ href, animated, className, style, onClick, children }) =
 
     if (animated === undefined) animated = true;
 
+    useEffect(() => {
+        const maxSize = buttonRef.current.offsetWidth > buttonRef.current.offsetHeight ? buttonRef.current.offsetWidth : buttonRef.current.offsetHeight;
+        buttonRef.current.style.setProperty('--scale', (maxSize + ((1 - Math.pow(1.25, -0.01 * maxSize)) * 40)) / maxSize);
+    }, [])
+
+
     const handleButton = () => {
         if (onClick !== undefined) onClick();
         if (href?.length == 0 || !href) return;

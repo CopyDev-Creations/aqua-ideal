@@ -1,7 +1,8 @@
 import CustomButton from "./CustomButton";
-import CustomImageGallery from "./CustomImageGallery";
+import EmblaCarousel from "./EmblaCarousel";
 import Footer from "./Footer";
 import Header from "./Header";
+import ImageGallery from "./ImageGallery";
 import Intro from "./Intro";
 import LenisContext from "./LenisContext";
 import LoadingContext from "./LoadingContext";
@@ -11,4 +12,4 @@ import Section1 from "./Section1";
 import Section2 from "./Section2";
 import SmoothScrolling from "./SmoothScrolling";
 
-export { CustomButton, CustomImageGallery, Footer, Header, Intro, LenisContext, LoadingContext, LoadingScreen, Section1, Section2, ProductCard, SmoothScrolling }
+export { CustomButton, EmblaCarousel, Footer, Header, ImageGallery, Intro, LenisContext, LoadingContext, LoadingScreen, Section1, Section2, ProductCard, SmoothScrolling }

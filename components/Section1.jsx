@@ -13,17 +13,17 @@ const Section1 = () => {
             </div>
             <div className={styles.cards}>
                 <div>
-                    <ProductCard href={"#"} thumbnail={"/AIP120_oak.png"} name={"Szafka łazienkowa"} />
+                    <ProductCard href={"/products/AIP120"} thumbnail={"/images/AIP120_oak.png"} name={"Wall-mounted Tall Cabinet"} />
                 </div>
                 <div>
-                    <ProductCard href={"#"} thumbnail={"/AIWC80_oak.png"} name={"Szafka podumywalkowa"} />
+                    <ProductCard href={"/products/AIWC80"} thumbnail={"/images/AIWC80_oak.png"} name={"Sink Basin Cabinet"} />
                 </div>
                 <div>
-                    <ProductCard href={"#"} thumbnail={"/AIM35.png"} name={"Dostawka do szafki"} />
+                    <ProductCard href={"/products/AIM35"} thumbnail={"/images/AIM35.png"} name={"Cabinet Extension"} />
                 </div>
                 <div>
                     <CustomButton href={"/products"} animated={false} className={styles.card}>
-                        <img src="/card_background.png" alt="background" className={styles.cardBg} />
+                        <img src="/images/card_background.png" alt="background" className={styles.cardBg} />
                         <div className={styles.cardContent}>
                             <h2>Discover<br />Perfection</h2>
                             <svg className={styles.cta} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

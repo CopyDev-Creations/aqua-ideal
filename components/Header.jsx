@@ -17,7 +17,15 @@ const Header = () => {
     }
 
     const handleClick = (event) => {
-        if (event.target.className != styles.sidebar && event.pointerId == 1 && event.target.className != `${styles.hamburgerMenu} prevent-select hamburgerMenu`) {
+        console.log(event);
+        if (event.target.className != styles.sidebar && event.target.id != "menu" && event.target.className != `${styles.hamburgerMenu} prevent-select hamburgerMenu`) {
+            checkboxRef.current.checked = false;
+            sidebarRef.current.style.translate = '';
+        }
+    }
+
+    const handleTouch = (event) => {
+        if (event.target.className != styles.sidebar && event.target.className != `${styles.hamburgerMenu} prevent-select hamburgerMenu`) {
             checkboxRef.current.checked = false;
             sidebarRef.current.style.translate = '';
         }
@@ -26,10 +34,12 @@ const Header = () => {
     useEffect(() => {
         checkboxRef.current.addEventListener('change', handleCheckbox);
         document.addEventListener('click', handleClick);
+        document.addEventListener('touchend', handleTouch);
 
         return () => {
             checkboxRef.current.removeEventListener('change', handleCheckbox);
             document.removeEventListener('click', handleClick);
+            document.removeEventListener('touchend', handleTouch);
         }
     }, []);
 
@@ -46,7 +56,7 @@ const Header = () => {
             <aside className={styles.sidebar} ref={sidebarRef}>
                 <CustomButton href="/" className={styles.link}>Home</CustomButton>
                 <CustomButton href="/products" className={styles.link}>Products</CustomButton>
-                <CustomButton href="/products/#test" className={styles.link}>How it works</CustomButton>
+                <CustomButton href="/products/#howitworks" className={styles.link}>How it works</CustomButton>
             </aside>
         </>
     )

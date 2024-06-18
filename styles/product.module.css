@@ -23,6 +23,12 @@
     margin-bottom: 40px;
 }
 
+.colorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .colors {
     display: flex;
     flex-direction: row;
@@ -46,13 +52,18 @@
     border-radius: 50%;
 }
 
+.amazonBg {
+    background-color: var(--primary-accent-color);
+    border-radius: 20px;
+    width: fit-content;
+}
+
 .amazonBtn {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: var(--primary-accent-color);
-    border-radius: 20px;
-    padding: 20px;
+    padding: 20px 30px 20px 20px;
+    margin-top: 20px;
     gap: 20px;
 }
 
@@ -64,12 +75,12 @@
 .mainContainer {
     display: grid;
     grid-auto-rows: 20lvh;
+    column-gap: 20px;
 }
 
 .mainContainer>* {
     width: 100%;
     height: 100%;
-    padding: 0 20px;
 }
 
 .mainContainer>*:nth-child(1) {
@@ -78,14 +89,87 @@
     padding: 0px;
 }
 
+.AIP120_cards,
+.AIWC80_cards,
+.CT115_cards {
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 20px;
+    margin-top: 10lvh;
+
+    &>div {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        background-image: url("/images/card_background.png");
+        background-size: cover;
+        background-position: center;
+        color: var(--secondary-color);
+        border-radius: 20px;
+        max-width: 400px;
+        padding: 20px;
+        gap: 10px;
+
+        &>p {
+            text-align: left;
+        }
+    }
+}
+
+.CT115_cards {
+    grid-template-columns: 1fr 1fr;
+}
+
+.AIP120_desc {
+    display: grid;
+    column-gap: 100px;
+    row-gap: 20px;
+}
+
+.AIWC80_desc {
+    display: grid;
+    column-gap: 50px;
+    row-gap: 20px;
+}
+
 @media (min-width: 1200px) {
     .mainContainer {
         grid-template-columns: 0.6fr 0.4fr;
+    }
+
+    .AIP120_cards,
+    .AIWC80_cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .AIP120_desc {
+        grid-template-columns: 500px 500px;
+    }
+
+    .AIWC80_desc {
+        grid-template-columns: 350px 350px 350px;
     }
 }
 
 @media (max-width: 1199px) {
     .mainContainer {
         grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 20px;
     }
+
+    .AIP120_cards,
+    .AIWC80_cards,
+    .CT115_cards,
+    .AIP120_desc,
+    .AIWC80_desc {
+        grid-template-columns: 1fr;
+    }
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10lvh;
 }
