@@ -72,20 +72,31 @@ const Intro = () => {
             tl2.to(`.${styles.heroSection}`, { translate: "0 -100%" }, 0.025)
 
 
-            const canvas = document.getElementById("hero-lightpass");
+            const canvas = document.getElementById("transition-canvas");
             const context = canvas.getContext("2d");
 
             canvas.width = innerWidth;
             canvas.height = innerWidth * (1000 / 1440);
 
-            const observer = new ResizeObserver((entries) => {
-                // canvas.width = entries[0].contentRect.width;
-                // canvas.height = entries[0].contentRect.height;
+            // const observer = new ResizeObserver((entries) => {
+            //     // canvas.width = entries[0].contentRect.width;
+            //     // canvas.height = entries[0].contentRect.height;
+            //     canvas.width = innerWidth;
+            //     canvas.height = innerWidth * (1000 / 1440);
+            //     render();
+            // });
+            // observer.observe(canvas);
+
+            const onWindowResize = () => {
                 canvas.width = innerWidth;
                 canvas.height = innerWidth * (1000 / 1440);
                 render();
-            });
-            observer.observe(canvas);
+            }
+
+            setInterval(onWindowResize, 1);
+
+            window.onresize = onWindowResize;
+
 
             const beforeTransition = () => {
                 canvas.style.display = "";
@@ -120,7 +131,7 @@ const Intro = () => {
                 snap: "frame",
                 ease: "none",
                 scrollTrigger: {
-                    trigger: "#canvas-container",
+                    trigger: "#transition-canvas",
                     endTrigger: "#end-transition",
                     start: "50% 50%", // when the ___ of the trigger hits the ___ of the viewport
                     end: "top bottom",
@@ -136,9 +147,11 @@ const Intro = () => {
                     if (innerHeight / innerWidth > 1000 / 1440) {
                         let height = innerWidth * (1000 / 1440);
                         let progress = (animation.frame + 1) / 100;
-                        canvas.style.scale = 1 + progress * (1 / (height / innerHeight)) * 1.1;
+                        canvas.style.setProperty("scale", 1 + progress * (1 / (height / innerHeight)) * 1.1, "important");
+                        // canvas.style.scale = 1 + progress * (1 / (height / innerHeight)) * 1.1;
                     } else {
-                        canvas.style.scale = 1;
+                        canvas.style.setProperty("scale", 1, "important");
+                        // canvas.style.scale = 1;
                     }
                 }, // use animation onUpdate instead of scrollTrigger's onUpdate
             });
@@ -197,7 +210,7 @@ const Intro = () => {
                         for your bathroom. Discover our inspirational collection to experience a spa-like atmosphere.
                     </p>
                     <div className={styles.canvasContainer} id="canvas-container">
-                        <canvas id="hero-lightpass" />
+                        <canvas id="transition-canvas" />
                     </div>
                 </section>
             </div>

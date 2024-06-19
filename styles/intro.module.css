@@ -76,6 +76,7 @@
 .transition canvas {
     width: 100%;
     display: block;
+    transform: scale(1) !important;
 }
 
 .canvasContainer {
